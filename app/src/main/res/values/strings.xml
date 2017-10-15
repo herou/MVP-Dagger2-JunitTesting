@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">LoginMpv</string>
+    <string name="checkUsernameAndPassowrd">Check username and password</string>
+    <string name="loginSuccesfully">Login succesfully</string>
+    <string name="tryAgain">Try again</string>
+</resources>
