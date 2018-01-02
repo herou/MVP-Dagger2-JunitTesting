@@ -17,6 +17,7 @@ public class LoginMVP {
     }
     public interface Presenter{
         void onLoginButtonClick(String username,String password);
+        
     }
     public interface Model{
         boolean loginStatus(String username,String password);

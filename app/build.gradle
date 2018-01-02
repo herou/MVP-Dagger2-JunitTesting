@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.root.loginmpv"
         minSdkVersion 15
@@ -27,4 +27,12 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+
+    //dagger dependencies
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    implementation 'com.google.dagger:dagger:2.11'
+
+    //mockito dependencies
+    testCompile "org.mockito:mockito-core:2.9.0"
+    compile "org.mockito:mockito-core:2.9.0"
 }

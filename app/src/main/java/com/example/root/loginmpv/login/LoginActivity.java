@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.root.loginmpv.R;
+import com.example.root.loginmpv.login.di.component.DaggerLoginPresenterComponent;
+import com.example.root.loginmpv.login.di.component.LoginPresenterComponent;
+import com.example.root.loginmpv.login.di.module.LoginPresenterModule;
+
 
 public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
 
@@ -15,7 +19,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
     EditText password;
     Button login;
 
-    private LoginPresenter mLoginPresernter;
+    LoginPresenter mLoginPresernter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,14 @@ public class LoginActivity extends AppCompatActivity implements LoginMVP.View {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
+
+        LoginPresenterComponent component =
+                DaggerLoginPresenterComponent.builder()
+                        .loginPresenterModule(new LoginPresenterModule())
+                .build();
+
+        component.inject(mLoginPresernter);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
