@@ -1,8 +1,5 @@
 package com.example.root.loginmpv.login;
 
-
-import javax.inject.Inject;
-
 /**
  * Created by root on 10/15/17.
  */
@@ -10,23 +7,20 @@ import javax.inject.Inject;
 public class LoginPresenter implements LoginMVP.Presenter{
 
     LoginMVP.View view;
+    public LoginMVP.Model loginModel;
 
-    @Inject
-    public LoginModel loginModel;
 
-    @Inject
-    public LoginPresenter(LoginMVP.View view) {
+    public LoginPresenter(LoginMVP.View view,LoginMVP.Model loginModel) {
         this.view = view;
+        this.loginModel = loginModel;
     }
 
     @Override
     public void onLoginButtonClick(String username,String password) {
-        view.getUsername();
-        view.getPassword();
-        if(view.getUsername().equalsIgnoreCase("") || view.getPassword().equalsIgnoreCase("")){
+        if(username.equalsIgnoreCase("") || password.equalsIgnoreCase("")){
             view.displayMsg();
         }else{
-            if(loginModel.loginStatus(view.getUsername(),view.getPassword()) == true){
+            if(loginModel.loginStatus(username, password) == true){
                 view.displayLoginsuccesfully();
             }else{
                 view.displayTryAgain();
